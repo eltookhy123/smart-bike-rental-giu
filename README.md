@@ -1,83 +1,153 @@
 # Smart Bike Rental App
 
-**German International University (GIU) — Software Engineering Project**
+**German International University (GIU)**  
+**Software Engineering — Milestone 2: Database Design and Implementation**
+
+---
 
 ## 1. Project Overview
 
-The Smart Bike Rental App is a university-focused bike rental system designed for GIU students and staff.
+The Smart Bike Rental App is a bike-sharing system designed for German International University (GIU) students and staff.
 
-The application allows eligible users to locate available bikes, unlock them using QR codes, track their rides, and make payments through the application.
+The system provides convenient transportation between the university campus and the monorail station by allowing users to locate available bikes, rent them, track their rides, and make automatic payments.
 
-The system is designed to support bike transportation between the university campus and the nearby monorail station.
+The application also includes GPS tracking, geographical restrictions, bike problem reporting, and customer support.
 
-## 2. Project Objectives
+### Main Features
 
-* Provide convenient bike transportation for GIU students and staff.
-* Display available bikes and their locations.
-* Enable QR-code-based bike unlocking.
-* Track ride duration and distance.
-* Calculate rental costs automatically.
-* Enforce geographical restrictions for bike usage.
-* Support secure online payments.
-* Allow users to report bike problems and contact customer support.
+- User registration and login restricted to GIU students and staff.
+- Live bike availability and location tracking.
+- QR code scanning to start bike rentals.
+- GPS tracking and geographical boundary enforcement.
+- Ride duration, distance, and cost calculation.
+- Bike return procedures for campus and monorail locations.
+- Payment card registration and automatic payments.
+- Faulty bike reporting and availability management.
+- Customer support requests and administrative responses.
 
-## 3. Main Features
+---
 
-* **User Management:** Registration, login, and GIU eligibility verification.
-* **Bike Availability:** View available bikes and their locations on a map.
-* **Bike Rental:** Scan QR codes to unlock bikes and start rentals.
-* **GPS Tracking:** Track bike locations and enforce permitted geographical boundaries.
-* **Ride Management:** Monitor ride duration, distance, and rental costs.
-* **Bike Returns:** Support returns within the campus and at the monorail station.
-* **Payments:** Save payment methods and process rental payments.
-* **Problem Reporting:** Report faulty bikes.
-* **Customer Support:** Submit support requests and receive responses.
+## 2. Team Members
 
-## 4. Database Design
+| Name | GIU ID | Role in Team |
+|---|---|---|
+| Malek Moaz | 19002369 | Team Leader and Project Coordination |
+| Mazen Zaki | 19004099 | Requirements Analysis |
+| Youssef Marawan | 19002534 | ERD Development |
+| Omar Ebeid | 17002289 | Relationships and Cardinalities Review |
+| Abdelrahman Gadallah | 19003313 | Database Table Creation |
+| Mohamed Elshellity | 19006374 | Constraints and Indexes |
+| Youssef Gheith | 19001973 | Sample Data Preparation |
+| Zein Ahmed | 19007657 | Database Testing |
+| Zeiad Ahmed | 19007457 | Documentation and Traceability |
+| Abdelrahman Ehab | 19003060 | GitHub Organization and Final Review |
 
-The proposed database design contains 10 main entities:
+---
 
-1. USERS
-2. BIKES
-3. STATIONS
-4. RENTALS
-5. PAYMENTS
-6. PAYMENT_METHODS
-7. BIKE_LOCATIONS
-8. BIKE_PROBLEMS
-9. GEOFENCE
-10. SUPPORT_TICKETS
+## 3. Entity Relationship Diagram (ERD)
 
-The Entity Relationship Diagram (ERD) and its editable source file are available in the `schema` folder.
+The Entity Relationship Diagram represents the database structure, including its entities, attributes, primary keys, foreign keys, relationships, and cardinalities.
 
-* [View ERD (PDF)](schema/Smart_Bike_Rental_ERD_final.drawio.pdf)
-* [Editable ERD (draw.io)](schema/Smart_Bike_Rental_ERD%20%285%29.drawio)
+**Editable ERD Source:** [Open erd.drawio](docs/erd.drawio)
 
-## 5. Repository Structure
+### ERD Preview
+
+![Smart Bike Rental App Entity Relationship Diagram](docs/erd.png)
+
+---
+
+## 4. Entity-to-User-Story Traceability
+
+The following table maps each database entity to the user stories from the final Milestone 1 product backlog that justify its inclusion.
+
+| Entity | Related User Stories |
+|---|---|
+| users | US-001, US-002, US-003, US-004 |
+| bikes | US-005, US-006, US-007, US-009, US-010, US-028 |
+| stations | US-005, US-006, US-020, US-021 |
+| rentals | US-009, US-010, US-016, US-017, US-018, US-019, US-020, US-021, US-022, US-023, US-024 |
+| payments | US-026, US-027 |
+| payment_methods | US-025, US-026, US-027 |
+| bike_locations | US-011, US-013, US-014, US-015, US-017, US-022 |
+| geofences | US-012, US-013, US-014, US-015, US-020, US-021, US-022 |
+| bike_problems | US-028 |
+| support_tickets | US-029, US-030 |
+
+---
+
+## 5. Database Information
+
+| Property | Details |
+|---|---|
+| DBMS | PostgreSQL |
+| PostgreSQL Version | 18 |
+| Database Name | `smart_bike_rental` |
+| Database Administration Tool | pgAdmin 4 |
+
+### Database Design
+
+The database consists of 10 main entities:
+
+1. `users`
+2. `bikes`
+3. `stations`
+4. `rentals`
+5. `payments`
+6. `payment_methods`
+7. `bike_locations`
+8. `geofences`
+9. `bike_problems`
+10. `support_tickets`
+
+The database uses primary keys, foreign keys, unique constraints, check constraints, and indexes to maintain data integrity and establish relationships between entities.
+
+---
+
+## 6. PostgreSQL Scripts
+
+All database scripts are stored in the `schema/` directory.
+
+The scripts should be executed in the following order on an empty PostgreSQL database named `smart_bike_rental`.
+
+| Script | Description |
+|---|---|
+| `01_create_tables.sql` | Creates all database tables and defines primary and foreign keys. |
+| `02_constraints_indexes.sql` | Adds database constraints, validation rules, and indexes. |
+| `03_seed_data.sql` | Inserts sample records into the database for testing. |
+| `04_database_tests.sql` | Contains separate tests to verify database constraints and data integrity. |
+
+**Note:** The fourth script contains intentional invalid-data tests. It is separate from the normal database setup sequence.
+
+---
+
+## 7. Repository Structure
 
 ```text
 smart-bike-rental-giu/
 │
+├── README.md
+│
 ├── docs/
+│   ├── erd.png
+│   └── erd.drawio
 │
-├── schema/
-│   ├── README.md
-│   ├── Smart_Bike_Rental_ERD (5).drawio
-│   └── Smart_Bike_Rental_ERD_final.drawio.pdf
-│
-└── README.md
+└── schema/
+    ├── 01_create_tables.sql
+    ├── 02_constraints_indexes.sql
+    ├── 03_seed_data.sql
+    └── 04_database_tests.sql
 ```
-
-## 6. Project Information
-
-**University:** German International University (GIU)
-
-**Project:** Smart Bike Rental App
-
-**Course:** Software Engineering
-
-**Project Type:** Academic Team Project
 
 ---
 
-*This repository contains the documentation and database design for the Smart Bike Rental App project.*
+## 8. Tools and Technologies
+
+- **PostgreSQL 18:** Relational database management system.
+- **pgAdmin 4:** Database administration and SQL execution.
+- **draw.io (diagrams.net):** Entity Relationship Diagram design.
+- **Git and GitHub:** Version control, collaboration, and project submission.
+
+---
+
+**German International University (GIU)**  
+**Software Engineering — Smart Bike Rental App — Milestone 2**
