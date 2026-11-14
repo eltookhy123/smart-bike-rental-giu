@@ -48,9 +48,10 @@ The application also includes GPS tracking, geographical restrictions, bike prob
 
 The Entity Relationship Diagram represents the database structure, including its entities, attributes, primary keys, foreign keys, relationships, and cardinalities.
 
-**Editable ERD Source:** [Open erd.drawio](docs/erd.drawio)
+**Editable ERD Source:** [Open erd.drawio](docs/erd.drawio)  
 
-### ERD Preview
+### ERD Preview  
+https://drive.google.com/file/d/1GAJG9yBb7PuCrnJlAI1fWz1W1msoQLJZ/view?usp=sharing
 
 ![Smart Bike Rental App Entity Relationship Diagram](docs/erd.png)
 
